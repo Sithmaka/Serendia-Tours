@@ -20,6 +20,7 @@
             background: url('Serendia Tours BG.png') no-repeat center center fixed;
             background-size: cover;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -62,6 +63,7 @@
             text-transform: uppercase;
             margin-top: 20px;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
         }
 
         .footer {
@@ -84,13 +86,61 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+
+            .coming-soon {
+                font-size: 1.5rem;
+                padding: 10px 30px;
+            }
+
+            .footer img {
+                max-width: 300px;
+            }
+
+            .footer a {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .coming-soon {
+                font-size: 1.2rem;
+                padding: 8px 20px;
+            }
+
+            .footer img {
+                max-width: 200px;
+            }
+
+            .footer a {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div>
         <h1>Serendia Tours</h1>
         <p>Our website is under construction.<br>Stay tuned for an amazing experience!</p>
-        <a href="countdown.html"><div class="coming-soon">Coming Soon</div></a>
+        <a href="countdown.html" class="coming-soon">Coming Soon</a>
         <div class="footer">
             <a href="https://www.codebell.online" target="_blank"><img src="Developer.png" alt="Developed by CodeBell (PVT) LTD"></a>
         </div>
