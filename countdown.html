@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to Launch</title>
+    <style>
+        @font-face {
+            font-family: 'DSEG7Classic';
+            src: url('DSEG7Classic-Regular.woff2') format('woff2'),
+                 url('DSEG7Classic-Regular.woff') format('woff');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('Serendia Tours BG.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            font-family: 'DSEG7Classic', sans-serif;
+            font-size: 16rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .clock div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .clock span {
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #ff5722;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #ff5722;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const targetDate = new Date('January 13, 2025 00:00:00').getTime();
+
+            function updateClock() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.querySelector('.days').textContent = days;
+                document.querySelector('.hours').textContent = hours;
+                document.querySelector('.minutes').textContent = minutes;
+                document.querySelector('.seconds').textContent = seconds;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.querySelector('.clock').innerHTML = 'Website Launched!';
+                }
+            }
+
+            updateClock();
+            const interval = setInterval(updateClock, 1000);
+        });
+    </script>
+</head>
+<body>
+    <h1>Countdown to Launch</h1>
+    <div class="clock">
+        <div>
+            <div class="days">00</div>
+            <span>Days</span>
+        </div>
+        <div>
+            <div class="hours">00</div>
+            <span>Hours</span>
+        </div>
+        <div>
+            <div class="minutes">00</div>
+            <span>Minutes</span>
+        </div>
+        <div>
+            <div class="seconds">00</div>
+            <span>Seconds</span>
+        </div>
+    </div>
+    <a href="index.html" class="back-button">Back</a>
+</body>
+</html>
